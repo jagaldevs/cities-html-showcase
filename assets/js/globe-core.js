@@ -15,7 +15,7 @@
   class Globe{
     constructor(canvas,o={}){
       this.canvas=canvas;this.o=Object.assign({w:1920,h:1080,z:4.2,minZ:1.45,maxZ:6,spin:.00012,atmosphere:[.45,.6,1],stars:true,interactive:true},o);
-      const R=this.R=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+      const R=this.R=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});R.outputEncoding=THREE.sRGBEncoding;
       this.scene=new THREE.Scene();this.cam=new THREE.PerspectiveCamera(32,this.o.w/this.o.h,.01,200);
       this.st={spin:o.spin0??2.2,tilt:o.tilt0??.3,z:this.o.z,ox:o.ox??0,oy:o.oy??0};
       this.tilt=new THREE.Group();this.spinG=new THREE.Group();this.scene.add(this.tilt);this.tilt.add(this.spinG);
